@@ -1,3 +1,4 @@
+using MaoNaMassa.Areas.Identity;
 using MaoNaMassa.Data;
 using MaoNaMassa.Models;
 using MaoNaMassa.Services;
@@ -32,7 +33,9 @@ namespace MaoNaMassa
 
             services.AddDefaultIdentity<IdentityUser>(options => {
                 options.SignIn.RequireConfirmedAccount = true;
-                }).AddEntityFrameworkStores<ApplicationDbContext>();
+                }).AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddErrorDescriber<PortugueseIdentityErrorDescriber>();
+
 
             services.AddRazorPages();
 

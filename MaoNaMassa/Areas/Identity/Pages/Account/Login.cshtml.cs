@@ -42,15 +42,15 @@ namespace MaoNaMassa.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
+            [Required(ErrorMessage = "O e-mail é obrigatório")]
             [EmailAddress]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "A senha é obrigatória")]
             [DataType(DataType.Password)]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Lembrar de mim?")]
             public bool RememberMe { get; set; }
         }
 
@@ -98,7 +98,7 @@ namespace MaoNaMassa.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Tentativa inválida de login");
                     return Page();
                 }
             }
